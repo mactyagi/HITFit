@@ -11,6 +11,14 @@
 		495274132C51790500A924E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274122C51790500A924E1 /* ContentView.swift */; };
 		495274152C51790700A924E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495274142C51790700A924E1 /* Assets.xcassets */; };
 		495274182C51790700A924E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495274172C51790700A924E1 /* Preview Assets.xcassets */; };
+		4952741F2C51792600A924E1 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4952741E2C51792600A924E1 /* DateExtension.swift */; };
+		495274212C51794000A924E1 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274202C51794000A924E1 /* ImageExtension.swift */; };
+		495274302C517A3F00A924E1 /* burpee.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4952742B2C517A3F00A924E1 /* burpee.mp4 */; };
+		495274312C517A3F00A924E1 /* squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4952742C2C517A3F00A924E1 /* squat.mp4 */; };
+		495274322C517A3F00A924E1 /* step-up.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4952742D2C517A3F00A924E1 /* step-up.mp4 */; };
+		495274332C517A3F00A924E1 /* sun-salute.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4952742E2C517A3F00A924E1 /* sun-salute.mp4 */; };
+		495274352C51854200A924E1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274342C51854200A924E1 /* WelcomeView.swift */; };
+		495274372C51855900A924E1 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274362C51855900A924E1 /* ExerciseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +27,14 @@
 		495274122C51790500A924E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		495274142C51790700A924E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		495274172C51790700A924E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4952741E2C51792600A924E1 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		495274202C51794000A924E1 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		4952742B2C517A3F00A924E1 /* burpee.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = burpee.mp4; sourceTree = "<group>"; };
+		4952742C2C517A3F00A924E1 /* squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = squat.mp4; sourceTree = "<group>"; };
+		4952742D2C517A3F00A924E1 /* step-up.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "step-up.mp4"; sourceTree = "<group>"; };
+		4952742E2C517A3F00A924E1 /* sun-salute.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sun-salute.mp4"; sourceTree = "<group>"; };
+		495274342C51854200A924E1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		495274362C51855900A924E1 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +68,10 @@
 			isa = PBXGroup;
 			children = (
 				495274102C51790500A924E1 /* HITFitApp.swift */,
-				495274122C51790500A924E1 /* ContentView.swift */,
+				495274382C51858200A924E1 /* Views */,
+				4952741E2C51792600A924E1 /* DateExtension.swift */,
+				4952742F2C517A3F00A924E1 /* Videos */,
+				495274202C51794000A924E1 /* ImageExtension.swift */,
 				495274142C51790700A924E1 /* Assets.xcassets */,
 				495274162C51790700A924E1 /* Preview Content */,
 			);
@@ -65,6 +84,27 @@
 				495274172C51790700A924E1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4952742F2C517A3F00A924E1 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				4952742B2C517A3F00A924E1 /* burpee.mp4 */,
+				4952742C2C517A3F00A924E1 /* squat.mp4 */,
+				4952742D2C517A3F00A924E1 /* step-up.mp4 */,
+				4952742E2C517A3F00A924E1 /* sun-salute.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		495274382C51858200A924E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				495274122C51790500A924E1 /* ContentView.swift */,
+				495274342C51854200A924E1 /* WelcomeView.swift */,
+				495274362C51855900A924E1 /* ExerciseView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +167,10 @@
 			files = (
 				495274182C51790700A924E1 /* Preview Assets.xcassets in Resources */,
 				495274152C51790700A924E1 /* Assets.xcassets in Resources */,
+				495274322C517A3F00A924E1 /* step-up.mp4 in Resources */,
+				495274302C517A3F00A924E1 /* burpee.mp4 in Resources */,
+				495274312C517A3F00A924E1 /* squat.mp4 in Resources */,
+				495274332C517A3F00A924E1 /* sun-salute.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				495274372C51855900A924E1 /* ExerciseView.swift in Sources */,
+				495274352C51854200A924E1 /* WelcomeView.swift in Sources */,
 				495274132C51790500A924E1 /* ContentView.swift in Sources */,
+				4952741F2C51792600A924E1 /* DateExtension.swift in Sources */,
 				495274112C51790500A924E1 /* HITFitApp.swift in Sources */,
+				495274212C51794000A924E1 /* ImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
