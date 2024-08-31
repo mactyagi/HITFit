@@ -29,49 +29,64 @@ struct ExerciseView: View {
                 HeaderView(selectedTab: $selectedTab, titleText: exercise.exerciseName)
                     .padding(.bottom)
 
-                VideoPlayerView(videoName: exercise.videoName)
-                    .frame(height: geometry.size.height * 0.45)
+                ContainerView {
+                    VStack {
+                        VideoPlayerView(videoName: exercise.videoName)
+                            .frame(height: geometry.size.height * 0.45)
 
-                HStack(spacing: 150){
-                    startButton
-                    doneButton
-                        .disabled(!timerDone)
-                        .sheet(isPresented: $showSuccess, content: {
-                            SuccessView(selectedTab: $selectedTab)
-                                .presentationDetents([.medium,.large])
+                        HStack(spacing: 150){
+                            startButton
+                            doneButton
+                                .disabled(!timerDone)
+                                .sheet(isPresented: $showSuccess, content: {
+                                    SuccessView(selectedTab: $selectedTab)
+                                        .presentationDetents([.medium,.large])
+                                })
+                        }
+                        .font(.title3)
+                        .padding()
+
+                        if showTimer {
+                            TimerView(
+                                timerDone: $timerDone,
+                                size:  geometry.size.height * 0.07)
+                        }
+
+
+                        Spacer()
+
+                        RatingView(exerciseIndex: index)
+                            .padding()
+
+                        historyButton
+                        .sheet(isPresented: $showHistory, content: {
+                            HistoryView(showHistory: $showHistory)
                         })
-                }
-                .font(.title3)
-                .padding()
-
-                if showTimer {
-                    TimerView(
-                        timerDone: $timerDone,
-                        size:  geometry.size.height * 0.07)
-                }
-
-
-                Spacer()
-                
-                RatingView(exerciseIndex: index)
+                    }
                     .padding()
-
-                Button("History") {
-                    showHistory.toggle()
                 }
-                .padding(.bottom)
-                .sheet(isPresented: $showHistory, content: {
-                    HistoryView(showHistory: $showHistory)
-                })
+
             }
         }
     }
 
 
     var startButton: some View {
-        Button("Start Exercise") {
+        RaisedButton(buttonText: "Start Exercise") {
             showTimer.toggle()
         }
+    }
+    var historyButton: some View {
+        Button(action: {
+            showHistory.toggle()
+        }, label: {
+            Text("History")
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        })
+        .padding(.bottom, 10)
+
+        .buttonStyle(EmbosedButtonStyle())
     }
 
     var doneButton: some View {

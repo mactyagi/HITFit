@@ -11,47 +11,58 @@ struct WelcomeView: View {
     @Binding var selectedTab: Int
     @State private var showHistory = false
     var body: some View {
-        ZStack {
+        GeometryReader { geometry in
             VStack {
-                HStack(alignment: .bottom){
-                    VStack(alignment: .leading){
-                        Text("Get Fit")
-                            .font(.largeTitle)
-                        Text("With high intensity interval trailing")
-                            .font(.headline)
-                    }
-                    Image("step-up")
-                        .resizedToFill(width: 240, height: 240)
-                        .clipShape(Circle())
-
-                }
-                Button {
-                    selectedTab = 0
-                } label: {
-                    Text("Get Started")
-                    Image(systemName: "arrow.right.circle")
-
-                }
-                .font(.title)
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .stroke(Color.gray, lineWidth: 2)
-                    )
-
-            }
-            VStack {
-                HeaderView(selectedTab: $selectedTab, titleText: "Welcome")
+                HeaderView(
+                    selectedTab: $selectedTab,
+                    titleText: "Welcome")
                 Spacer()
-                Button("History") {
-                    showHistory.toggle()
+
+
+                ContainerView {
+                    ViewThatFits {
+                        VStack {
+                            WelcomeView.images
+                            WelcomeView.welcomeText
+                            getStartedButton
+                            Spacer()
+                            historyButton
+                        }
+
+                        VStack {
+                            WelcomeView.welcomeText
+                            getStartedButton
+                            Spacer()
+                            historyButton
+                        }
+                    }
                 }
-                .padding(.bottom)
-                .sheet(isPresented: $showHistory) {
-                    HistoryView(showHistory: $showHistory)
-                }
+                .frame(height: geometry.size.height * 0.8)
             }
+            .sheet(isPresented: $showHistory, content: {
+                HistoryView(showHistory: $showHistory)
+            })
         }
+    }
+
+    var getStartedButton: some View {
+        RaisedButton(buttonText: "Get Started") {
+            selectedTab = 0
+        }
+        .padding()
+    }
+
+    var historyButton: some View {
+        Button(action: {
+            showHistory.toggle()
+        }, label: {
+            Text("History")
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        })
+        .padding(.bottom, 10)
+
+        .buttonStyle(EmbosedButtonStyle())
     }
 }
 
