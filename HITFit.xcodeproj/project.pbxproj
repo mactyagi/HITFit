@@ -12,6 +12,12 @@
 		490764C72C8144B6009C8465 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490764C62C8144B6009C8465 /* ContainerView.swift */; };
 		490764C92C81489D009C8465 /* WelcomeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490764C82C81489D009C8465 /* WelcomeImages.swift */; };
 		490764CB2C814E60009C8465 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490764CA2C814E60009C8465 /* GradientBackground.swift */; };
+		490C96902C86182B00B8C8B8 /* BarChartDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C968F2C86182B00B8C8B8 /* BarChartDayView.swift */; };
+		490C96932C8644EB00B8C8B8 /* BarChartWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C96922C8644EB00B8C8B8 /* BarChartWeekView.swift */; };
+		490C96952C87155500B8C8B8 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C96942C87155500B8C8B8 /* ReportView.swift */; };
+		490C96972C872E9600B8C8B8 /* IndentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C96962C872E9600B8C8B8 /* IndentView.swift */; };
+		494459BD2C829C0300407897 /* history.plist in Resources */ = {isa = PBXBuildFile; fileRef = 494459BC2C829C0300407897 /* history.plist */; };
+		494459BF2C830FC800407897 /* AddHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494459BE2C830FC800407897 /* AddHistoryView.swift */; };
 		495274112C51790500A924E1 /* HITFitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274102C51790500A924E1 /* HITFitApp.swift */; };
 		495274132C51790500A924E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495274122C51790500A924E1 /* ContentView.swift */; };
 		495274152C51790700A924E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 495274142C51790700A924E1 /* Assets.xcassets */; };
@@ -41,6 +47,12 @@
 		490764C62C8144B6009C8465 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		490764C82C81489D009C8465 /* WelcomeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeImages.swift; sourceTree = "<group>"; };
 		490764CA2C814E60009C8465 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
+		490C968F2C86182B00B8C8B8 /* BarChartDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartDayView.swift; sourceTree = "<group>"; };
+		490C96922C8644EB00B8C8B8 /* BarChartWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartWeekView.swift; sourceTree = "<group>"; };
+		490C96942C87155500B8C8B8 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		490C96962C872E9600B8C8B8 /* IndentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndentView.swift; sourceTree = "<group>"; };
+		494459BC2C829C0300407897 /* history.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = history.plist; sourceTree = "<group>"; };
+		494459BE2C830FC800407897 /* AddHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHistoryView.swift; sourceTree = "<group>"; };
 		4952740D2C51790500A924E1 /* HITFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HITFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		495274102C51790500A924E1 /* HITFitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HITFitApp.swift; sourceTree = "<group>"; };
 		495274122C51790500A924E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +97,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		490C96912C86449600B8C8B8 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				494459BE2C830FC800407897 /* AddHistoryView.swift */,
+				490C96922C8644EB00B8C8B8 /* BarChartWeekView.swift */,
+				490530EF2C68BDE8004074A0 /* HistoryView.swift */,
+				490C96942C87155500B8C8B8 /* ReportView.swift */,
+				490C968F2C86182B00B8C8B8 /* BarChartDayView.swift */,
+			);
+			path = HistoryView;
+			sourceTree = "<group>";
+		};
 		495274042C51790500A924E1 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +143,7 @@
 		495274162C51790700A924E1 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				494459BC2C829C0300407897 /* history.plist */,
 				495274172C51790700A924E1 /* Preview Assets.xcassets */,
 				495D498F2C6C46C1007FFF3B /* HistoryStoreDevData.swift */,
 			);
@@ -142,8 +167,9 @@
 				495274122C51790500A924E1 /* ContentView.swift */,
 				495C1A592C7312ED00CF8C2A /* RaisedButton.swift */,
 				495C1A5B2C731E3F00CF8C2A /* EmbosedButton.swift */,
-				490530EF2C68BDE8004074A0 /* HistoryView.swift */,
+				490C96912C86449600B8C8B8 /* HistoryView */,
 				4970EB6D2C704BAF00B09C9A /* TimerView.swift */,
+				490C96962C872E9600B8C8B8 /* IndentView.swift */,
 				495274342C51854200A924E1 /* WelcomeView.swift */,
 				490764CA2C814E60009C8465 /* GradientBackground.swift */,
 				495274362C51855900A924E1 /* ExerciseView.swift */,
@@ -216,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				495274182C51790700A924E1 /* Preview Assets.xcassets in Resources */,
+				494459BD2C829C0300407897 /* history.plist in Resources */,
 				495274152C51790700A924E1 /* Assets.xcassets in Resources */,
 				495274322C517A3F00A924E1 /* step-up.mp4 in Resources */,
 				495274302C517A3F00A924E1 /* burpee.mp4 in Resources */,
@@ -231,7 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494459BF2C830FC800407897 /* AddHistoryView.swift in Sources */,
 				4970EB6E2C704BAF00B09C9A /* TimerView.swift in Sources */,
+				490C96952C87155500B8C8B8 /* ReportView.swift in Sources */,
 				495C1A5A2C7312ED00CF8C2A /* RaisedButton.swift in Sources */,
 				490764C72C8144B6009C8465 /* ContainerView.swift in Sources */,
 				495C1A5C2C731E3F00CF8C2A /* EmbosedButton.swift in Sources */,
@@ -246,9 +275,12 @@
 				49AF70C52C6DF9AC000E69AB /* SuccessView.swift in Sources */,
 				495274132C51790500A924E1 /* ContentView.swift in Sources */,
 				490530F02C68BDE8004074A0 /* HistoryView.swift in Sources */,
+				490C96902C86182B00B8C8B8 /* BarChartDayView.swift in Sources */,
 				4952741F2C51792600A924E1 /* DateExtension.swift in Sources */,
 				495274112C51790500A924E1 /* HITFitApp.swift in Sources */,
 				495274212C51794000A924E1 /* ImageExtension.swift in Sources */,
+				490C96972C872E9600B8C8B8 /* IndentView.swift in Sources */,
+				490C96932C8644EB00B8C8B8 /* BarChartWeekView.swift in Sources */,
 				49DB036D2C54720200F0052E /* HeaderView.swift in Sources */,
 				4956B00F2C630CB2009F622F /* VideoPlayerView.swift in Sources */,
 			);

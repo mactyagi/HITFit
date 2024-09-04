@@ -13,6 +13,7 @@ enum EmbosedButtonShape{
 
 struct EmbosedButtonStyle: ButtonStyle {
     var buttonShape = EmbosedButtonShape.capsule
+    var buttonScale = 1.0
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding(10)
@@ -25,6 +26,7 @@ struct EmbosedButtonStyle: ButtonStyle {
                         .offset(x: -1, y: -1)
                 }
             )
+            .scaleEffect(configuration.isPressed ? buttonScale : 1.0)
     }
 
     @ViewBuilder

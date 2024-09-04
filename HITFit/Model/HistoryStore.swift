@@ -16,6 +16,14 @@ struct ExerciseDay: Identifiable {
     let id = UUID()
     let date: Date
     var exercises: [String] = []
+    var uniqueExercises:[String] {
+        Array(Set(exercises)).sorted(by: <)
+    }
+
+
+    func countExercise(exercise: String) -> Int {
+        exercises.filter { $0 == exercise }.count
+    }
 }
 
 class HistoryStore: ObservableObject {
@@ -26,12 +34,22 @@ class HistoryStore: ObservableObject {
             .appendingPathComponent("history.plist")
     }
 
-    init() {
+    init(preview: Bool = false) {
         do {
             try load()
         } catch {
             loadingError = true
         }
+        #if DEBUG
+        if preview {
+            createDevData()
+        }else{
+            if exerciseDays.isEmpty {
+                copyHistoryTestData()
+                try? load()
+            }
+        }
+        #endif
     }
 
     func addDoneExercise(_ exerciseName: String) {
@@ -47,6 +65,22 @@ class HistoryStore: ObservableObject {
             fatalError(error.localizedDescription)
         }
 
+    }
+
+    func addExercise(date: Date, exerciseName: String) {
+        let exerciseDay = ExerciseDay(date: date, exercises: [exerciseName])
+        if let index = exerciseDays.firstIndex(where: { $0.date.yearMonthDay <= date.yearMonthDay }) {
+            if date.isSameDay(as: exerciseDays[index].date) {
+                exerciseDays[index].exercises.append(exerciseName)
+            }else {
+                exerciseDays.insert(exerciseDay, at: index)
+            }
+
+        } else {
+            exerciseDays.append(exerciseDay)
+        }
+
+        try? save()
     }
 
     func load() throws {

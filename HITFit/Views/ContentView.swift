@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
 
-    // @StateObject is the read only property wrapper
-    @StateObject private var historyStore = HistoryStore()
-
     // @SceneStorage is used to store the Scene
     @SceneStorage("selectedTab") private var selectedTab = 9
     var body: some View {
@@ -26,25 +23,19 @@ struct ContentView: View {
                         .tag(index)
                 }
             }
-            .onAppear(perform: {
-                print(URL.documentsDirectory)
-            })
-            .environmentObject(historyStore)
-            .tabViewStyle(.page)
-            .indexViewStyle(.page(backgroundDisplayMode: .never))
-            .alert(isPresented: $historyStore.loadingError, content: {
-                Alert(
-                    title: Text("History"),
-                    message:Text( """
-    Unfortunately we can't load your past history.
-            Email support:
-              support@xyz.com
-    """))
-        })
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
     }
 }
 
-#Preview {
-    ContentView()
+//#Preview {
+//    ContentView()
+//}
+
+struct ContentView_Previews: PreviewProvider {
+    static var history = HistoryStore(preview: true)
+    static var previews: some View{
+        ContentView()
+            .environmentObject(history)
+    }
 }

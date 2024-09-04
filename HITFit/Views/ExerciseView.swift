@@ -12,6 +12,7 @@ struct ExerciseView: View {
     @EnvironmentObject var history: HistoryStore
     @State private var showHistory = false
     @State private var showSuccess = false
+    @State private var showTimer = false
     @Binding var selectedTab: Int
     let index : Int
     var lastExercise: Bool {
@@ -22,7 +23,6 @@ struct ExerciseView: View {
     }
 
     @State private var timerDone = false
-    @State private var showTimer = false
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 0){
@@ -36,27 +36,34 @@ struct ExerciseView: View {
 
                         HStack(spacing: 150){
                             startButton
-                            doneButton
-                                .disabled(!timerDone)
-                                .sheet(isPresented: $showSuccess, content: {
-                                    SuccessView(selectedTab: $selectedTab)
-                                        .presentationDetents([.medium,.large])
+                                .padding([.leading, .trailing], geometry.size.width * 0.1)
+                                .sheet(isPresented: $showTimer, content: {
+                                    TimerView(timerDone: $timerDone, exerciseName: exercise.exerciseName, size: 90)
+                                    .onDisappear(perform: {
+                                        if timerDone {
+                                            print("adding data.")
+                                            history.addDoneExercise(Exercise.exercises[index].exerciseName)
+                                            timerDone = false
+                                            if lastExercise {
+                                                showSuccess.toggle()
+                                            }else {
+                                                withAnimation {
+                                                    selectedTab += 1
+                                                }
+                                            }
+                                        }
+                                    })
                                 })
                         }
                         .font(.title3)
                         .padding()
-
-                        if showTimer {
-                            TimerView(
-                                timerDone: $timerDone,
-                                size:  geometry.size.height * 0.07)
-                        }
-
-
                         Spacer()
 
                         RatingView(exerciseIndex: index)
-                            .padding()
+                            .padding(.bottom)
+                        ViewThatFits{
+                            Spacer()
+                        }
 
                         historyButton
                         .sheet(isPresented: $showHistory, content: {
@@ -104,9 +111,13 @@ struct ExerciseView: View {
     }
 }
 
-#Preview {
-    ExerciseView(selectedTab: .constant(3), index: 3)
-        .environmentObject(HistoryStore())
+
+struct ExerciseView_Previews: PreviewProvider {
+    static var history = HistoryStore(preview: true)
+    static var previews: some View {
+        ExerciseView(selectedTab: .constant(0), index: 0)
+            .environmentObject(history)
+    }
 }
 
 

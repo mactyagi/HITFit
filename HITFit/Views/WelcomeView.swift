@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @Binding var selectedTab: Int
     @State private var showHistory = false
+    @State private var showReport = false
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -26,14 +27,22 @@ struct WelcomeView: View {
                             WelcomeView.welcomeText
                             getStartedButton
                             Spacer()
-                            historyButton
+                            HStack {
+                                historyButton
+                                    .padding(.trailing)
+                                reportButton
+                            }
                         }
 
                         VStack {
                             WelcomeView.welcomeText
                             getStartedButton
                             Spacer()
-                            historyButton
+                            HStack {
+                                historyButton
+                                    .padding(.trailing)
+                                reportButton
+                            }
                         }
                     }
                 }
@@ -41,6 +50,9 @@ struct WelcomeView: View {
             }
             .sheet(isPresented: $showHistory, content: {
                 HistoryView(showHistory: $showHistory)
+            })
+            .sheet(isPresented: $showReport, content: {
+                ReportView()
             })
         }
     }
@@ -57,6 +69,20 @@ struct WelcomeView: View {
             showHistory.toggle()
         }, label: {
             Text("History")
+                .fontWeight(.bold)
+                .padding([.leading, .trailing], 5)
+        })
+        .padding(.bottom, 10)
+
+        .buttonStyle(EmbosedButtonStyle())
+    }
+
+
+    var reportButton: some View {
+        Button(action: {
+            showReport.toggle()
+        }, label: {
+            Text("Reports")
                 .fontWeight(.bold)
                 .padding([.leading, .trailing], 5)
         })
